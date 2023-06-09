@@ -19,7 +19,7 @@ database=
 
 </details>
 
-Then, you can simply call the following (assuming you have properly import the `database` submodule. 
+Then, you can simply call the following, assuming you have properly imported the `database` submodule. 
 
 ```python
 from database import Database
