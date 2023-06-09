@@ -1,10 +1,10 @@
 # Database
 
-Abstracts some database information away into a base class so that it can easily be called through other programs. To initialize a database, have credentials in a `creds.ini` file, as shown below:
+Abstracts some database information away into a base class so that it can easily be called through other programs. To initialize a database, have configuration credentials in a `conf.ini` file, as shown below:
 
 
 <details>
-<summary>creds.ini</summary>
+<summary>conf.ini</summary>
 
 ```ini
 [DATABASE_NAME]
@@ -26,5 +26,5 @@ from database import Database
 DATABASE_NAME = "your_name_here"
 db = Database(DATABASE_NAME)
 ```
-Note that `DATABASE_NAME` should match its counterpart in the `creds.ini` file.
+Note that `DATABASE_NAME` should match its counterpart in the `conf.ini` file.
 

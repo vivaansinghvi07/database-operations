@@ -11,7 +11,7 @@ class Database:
 
 		# obtain credentials
 		config = configparser.ConfigParser()
-		config.read(f"{Path(__file__).parent}/creds.ini")
+		config.read(f"{Path(__file__).parent}/conf.ini")
 		creds = dict(config[dbname].items())
 
 		self.conn = psycopg2.connect(**creds)
