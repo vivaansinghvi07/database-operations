@@ -5,6 +5,7 @@ Abstracts some database information away into a base class so that it can easily
 
 <details>
 <summary>creds.ini</summary>
+
 ```ini
 [DATABASE_NAME]
 host=
@@ -13,6 +14,7 @@ user=
 password=
 database=
 ```
+
 `DATABASE_NAME` represents an arbitrary name of the database which you will call in a script. The rest of the information should be filled out depending on the database being accessed.
 
 </details>
