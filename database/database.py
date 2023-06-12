@@ -4,6 +4,7 @@ import os
 import sys
 from pathlib import Path
 from typing import List, Tuple
+from functools import lru_cache
 
 class Database:
 
@@ -32,11 +33,13 @@ class Database:
 
 	def fetchall(self) -> List[Tuple[str]]:
 		return self.cur.fetchall()
-
+	
+	@lru_cache(maxsize=None)
 	def colnames(self, table: str) -> List[str]:
 		self.cur.execute(f"SELECT * FROM {table} LIMIT 0")
 		return [desc[0] for desc in self.cur.description]
-		
+	
+	@lru_cache(maxsize=None)		
 	def prim_keys(self, table: str) -> List[str]:
 		with open(f"{Path(__file__).parent}/primary_key.sql", 'r') as f:
 			qu = f.read().format(*table.split('.'))
