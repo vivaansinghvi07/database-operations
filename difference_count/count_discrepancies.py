@@ -12,6 +12,7 @@ sys.path.append('..')
 from database import Database
 from typing import List
 from time import perf_counter
+from colorama import Fore, Style
 
 ''' 
 Tab pattern for logging:
@@ -19,6 +20,10 @@ Tab pattern for logging:
 	1 tab for row differences
 		2 tabs for each item
 '''
+
+def h_print(prompt: str, end: None = "\n"):
+	''' print method override for highlighted text '''
+	print(f"{Style.BRIGHT}{prompt}{Style.RESET_ALL}", end=end)	
 
 def get_differences(dev_row, stage_row, colnames):
 	''' Returns a string describing the differences in a row. ''' 
@@ -35,7 +40,7 @@ def check_table_differences(table: str, log_differences: bool) -> int:
 	with Database("Stage Database")  as stage, Database("Dev Database") as dev:
 		primary_key_count = len(dev.prim_keys(table))
 		if primary_key_count == 0:
-			print(f"No primary keys found for table '{table}'. Defaulting to the first column.") 
+			h_print(f"{Fore.RED}ALERT:{Fore.RESET} No primary keys found for table {Fore.GREEN}'{table}'{Fore.RESET}. Defaulting to the first column.") 
 			primary_key_count = 1
 
 		stage_rows, dev_rows = {}, {}
@@ -88,7 +93,7 @@ def main():
 		start = perf_counter()
 		diff_count, entry_count = check_table_differences(table, log_diffs)
 		time_taken = perf_counter() - start
-		print(f"Number of differences for table '{table}' was {diff_count}. Analyzed {entry_count:,} entries in {time_taken:.2f} seconds.")
+		h_print(f"Number of differences for table {Fore.GREEN}'{table}'{Fore.RESET} was {Fore.BLUE}{diff_count}{Fore.RESET}. Analyzed {Fore.BLUE}{entry_count:,}{Fore.RESET} entries in {Fore.BLUE}{time_taken:.2f}{Fore.RESET} seconds.")
 
 if __name__ == "__main__":
 	main()
