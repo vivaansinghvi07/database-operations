@@ -4,10 +4,10 @@ This repository stores scripts used to manipulate data working for the ARM proje
 
 ## Usage
 
-To use this repository, assuming you have access to the ARM database, simply clone it into an SSH repository, using:
+To use this repository, assuming you have access to the ARM database, simply clone it into an SSH tunnel, using:
 
 ```
 git clone git@github.com:vivaansinghvi07/database-operations.git
 ```
 
-Then, navigate to `database/` and create a `conf.ini` file with your credentials to each database. Now, you should be able to use any of the scripts.
+Then, open the directory containing the repository and navigate to `database/` and create a `conf.ini` file with your credentials to each database. Now, you should be able to use any of the scripts.
