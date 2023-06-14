@@ -1,6 +1,9 @@
 ''' Determines the difference in row counts between the two tables '''
 import sys
-sys.path.append('..')
+from pathlib import Path
+
+DIR_PATH = Path(__file__).parent
+sys.path.append(f'{DIR_PATH}/..')
 
 from database import Database
 from colorama import Fore, Style

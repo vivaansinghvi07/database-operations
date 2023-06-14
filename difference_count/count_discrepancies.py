@@ -7,12 +7,15 @@ The method used:
 ''' 
 
 import sys
-sys.path.append('..')
-
-from database import Database
+from pathlib import Path
 from typing import List
 from time import perf_counter
 from colorama import Fore, Style
+
+DIR_PATH = str(Path(__file__).parent)
+sys.path.append(f"{DIR_PATH}/..")
+
+from database import Database
 
 ''' 
 Tab pattern for logging:
@@ -77,7 +80,7 @@ def check_table_differences(table: str, log_differences: bool) -> int:
 	
 	# writes differences in file
 	if log_differences:
-		with open("table_differences.txt", 'w', encoding='utf-8') as f:
+		with open(f"table_differences.txt", 'w', encoding='utf-8') as f:
 			if difference_count > 0:
 				f.write(f"Differences for table '{table}':\n")
 				f.writelines(differences)

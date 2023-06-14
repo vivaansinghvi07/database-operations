@@ -11,7 +11,7 @@ To run this, run the following shell script:
 $ python3 count_discrepancies.py --log-differences <schema1>.<table1> <schema2>.<table2> ...
 ```
 
-`--log-differences`, or `-l` for short, determines if the differences will be logged in a file called `table_differences.txt`. 
+`--log-differences`, or `-l` for short, determines if the differences will be logged in a file called `table_differences.txt`, located in whichever directory the script is called from.
 
 Each table is entered with its corresponding schema, replacing `<table>` and `<schema>` respectively.
 
