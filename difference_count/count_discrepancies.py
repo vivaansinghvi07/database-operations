@@ -96,7 +96,7 @@ def main():
 		start = perf_counter()
 		diff_count, entry_count = check_table_differences(table, log_diffs)
 		time_taken = perf_counter() - start
-		h_print(f"Number of differences for table {Fore.GREEN}'{table}'{Fore.RESET} was {Fore.BLUE}{diff_count}{Fore.RESET}. Analyzed {Fore.BLUE}{entry_count:,}{Fore.RESET} entries in {Fore.BLUE}{time_taken:.2f}{Fore.RESET} seconds.")
+		h_print(f"Number of differences for table {Fore.GREEN}'{table}'{Fore.RESET} was {Fore.BLUE}{diff_count:,}{Fore.RESET}. Analyzed {Fore.BLUE}{entry_count:,}{Fore.RESET} entries in {Fore.BLUE}{time_taken:.2f}{Fore.RESET} seconds.")
 
 if __name__ == "__main__":
 	main()

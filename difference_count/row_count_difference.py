@@ -18,7 +18,7 @@ def main():
 	for table in sys.argv[1:]:
 		diff = calculate_difference(table)
 		if diff == 0: output = f"the {Fore.BLUE}same{Fore.RESET} amount of entries as"
-		else: output = f"{Fore.BLUE}{abs(diff)}{Fore.RESET} {'more' if diff > 0 else 'less'} entries than"
+		else: output = f"{Fore.BLUE}{abs(diff):,}{Fore.RESET} {'more' if diff > 0 else 'less'} entries than"
 		print(f"{Style.BRIGHT}The dev database has {output} the stage database for table {Fore.GREEN}'{table}'{Fore.RESET}{Style.RESET_ALL}.") 
 	
 if __name__ == "__main__":
